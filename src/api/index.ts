@@ -2,7 +2,7 @@
  * Базовый URL API.
  * В реальном проекте лучше вынести в .env.
  */
-const BASE_URL = 'https://jsonplaceholder.typicode.com'
+const BASE_URL = 'http://localhost:3001'
 
 interface RequestOptions extends RequestInit {
 	params?: Record<string, string>
@@ -40,5 +40,5 @@ export async function request<T>(
 		throw new Error(`HTTP error: ${response.status}`)
 	}
 
-	return await response.json() as Promise<T>
+	return response.json() as Promise<T>
 }
